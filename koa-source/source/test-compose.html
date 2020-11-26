@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    async function f1(next) {
+      console.log('f1 start')
+      await next()
+      console.log('f1 end')
+    }
+    async function f2(next) {
+      console.log('f2 start')
+      await next()
+      console.log('f2 end')
+    }
+    async function f3(next) {
+      console.log('f3 start')
+      await next()
+      console.log('f3 end')
+    }
+    const arr = [f1, f2, f3]
+
+    function compose(arr) {
+      return function () {
+        return dispatch(0)
+
+        function dispatch(i) {
+          const fn = arr[i]
+          if (!fn) {
+            return Promise.resolve()
+          }
+          return Promise.resolve(
+            fn(function next() {
+              return dispatch(i + 1)
+            })
+          )
+        }
+      }
+    }
+    const res = compose(arr);
+    console.log(res);
+    res()
+  </script>
+</body>
+
+</html>
