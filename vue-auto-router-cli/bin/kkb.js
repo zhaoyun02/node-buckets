@@ -6,5 +6,10 @@ program
   .command("init <name>")
   .description("init project")
   .action(require("../lib/init"));
+
+program
+  .command("refresh")
+  .description("refresh routers...")
+  .action(require("../lib/refresh"));
 //解析主进程的参数
 program.parse(process.argv);

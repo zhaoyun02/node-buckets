@@ -1,0 +1,17 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    (async () => {
+        console.log(66666)
+        // axios.defaults.baseURL = 'http://localhost:4000'
+        //报头 包含非常规内容时，会进行预检请求preflight method->options
+        const res = await axios.get("/api/users", {
+            headers: {
+                'X-Token': 123
+            }
+        })
+        console.log('data', res.data)
+        document.writeln(`Response:${JSON.stringify(res.data)}`)
+        // const img = new Image()
+        // img.src = '/api/user?abc=123'
+    })()
+</script>

@@ -1,0 +1,24 @@
+{
+  "name": "node-buckets",
+  "version": "1.0.0",
+  "description": "node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaoyun02/node-buckets.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhaoyun02/node-buckets/issues"
+  },
+  "homepage": "https://github.com/zhaoyun02/node-buckets#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.6"
+  }
+}
